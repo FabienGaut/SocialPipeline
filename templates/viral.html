@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pad: 64px;
+    --text-color: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: {W}px;
+    height: {H}px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-color);
+    overflow: hidden;
+  }
+
+  .frame {
+    position: relative;
+    width: {W}px;
+    height: {H}px;
+    background-image: url("{bg}");
+    background-size: cover;
+    background-position: center;
+    background-color: #0b1220;
+  }
+
+  /* Strong contrast overlay for impact */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 50% 30%,
+      rgba(0,0,0,0.15) 0%,
+      rgba(0,0,0,0.55) 40%,
+      rgba(10, 14, 30, 0.95) 100%
+    );
+  }
+
+  .content {
+    position: absolute;
+    left: var(--pad);
+    right: var(--pad);
+    top: var(--pad);
+    bottom: var(--pad);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .tag {
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    font-weight: 600;
+  }
+
+  .big {
+    font-weight: 800;
+    font-size: 72px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    max-width: 90%;
+  }
+
+  .mid {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.4;
+    opacity: 0.92;
+    max-width: 80%;
+  }
+
+  /* Viral punch block */
+  .punch {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1.2;
+    max-width: 85%;
+    padding-left: 20px;
+    border-left: 4px solid rgba(255,255,255,0.85);
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .cta {
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+
+  .footer {
+    font-size: 14px;
+    opacity: 0.6;
+    letter-spacing: 0.08em;
+  }
+
+</style>
+</head>
+
+<body>
+  <div class="frame">
+    <div class="overlay"></div>
+
+    <div class="content">
+
+      <div class="top">
+        <div class="tag">{tag}</div>
+
+        <!-- Main viral statement -->
+        <div class="big">{headline}</div>
+
+        <!-- Supporting clarity -->
+        <div class="mid">{subtext}</div>
+
+        <!-- Emotional punch -->
+        <div class="punch">{punch}</div>
+      </div>
+
+      <div class="bottom">
+        <div class="cta">{cta}</div>
+        <div class="footer">{footer}</div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

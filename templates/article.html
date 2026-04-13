@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pad: 72px;
+    --text: #0f1115;
+    --muted: #4a4f5c;
+    --accent: #d4a24a;
+    --panel: rgba(255, 255, 255, 0.94);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: {W}px;
+    height: {H}px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    overflow: hidden;
+  }
+
+  .frame {
+    position: relative;
+    width: {W}px;
+    height: {H}px;
+    background-image: url("{bg}");
+    background-size: cover;
+    background-position: center;
+    background-color: #f4efe7;
+  }
+
+  /* Voile clair pour garder la lisibilité sur image */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(244, 239, 231, 0.55) 0%,
+      rgba(244, 239, 231, 0.85) 100%
+    );
+  }
+
+  /* Panneau papier centré, max de lisibilité pour un long texte */
+  .sheet {
+    position: absolute;
+    left: 56px;
+    right: 56px;
+    top: 56px;
+    bottom: 56px;
+    background: var(--panel);
+    border: 1px solid rgba(15, 17, 21, 0.08);
+    box-shadow: 0 30px 60px rgba(15, 17, 21, 0.18);
+    padding: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .kicker::before {
+    content: "";
+    width: 36px;
+    height: 2px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 62px;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    color: var(--text);
+  }
+
+  .lead {
+    font-size: 26px;
+    line-height: 1.45;
+    font-weight: 500;
+    color: var(--text);
+    border-left: 3px solid var(--accent);
+    padding-left: 20px;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    font-size: 22px;
+    line-height: 1.55;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .body p { text-align: justify; }
+
+  .footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.8;
+    border-top: 1px solid rgba(15, 17, 21, 0.12);
+    padding-top: 18px;
+  }
+
+  .footer .author { font-weight: 600; color: var(--text); }
+</style>
+</head>
+
+<body>
+  <div class="frame">
+    <div class="overlay"></div>
+
+    <div class="sheet">
+      <div class="kicker">{kicker}</div>
+
+      <div class="title">{title}</div>
+
+      <div class="lead">{lead}</div>
+
+      <div class="body">
+        <p>{paragraph1}</p>
+        <p>{paragraph2}</p>
+        <p>{paragraph3}</p>
+      </div>
+
+      <div class="footer">
+        <span class="author">{author}</span>
+        <span>{footer}</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

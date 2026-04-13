@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pad: 80px;
+    --fg: #ffffff;
+    --muted: rgba(255, 255, 255, 0.7);
+    --accent: #e8c070;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: {W}px;
+    height: {H}px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--fg);
+    overflow: hidden;
+  }
+
+  .frame {
+    position: relative;
+    width: {W}px;
+    height: {H}px;
+    background-image: url("{bg}");
+    background-size: cover;
+    background-position: center;
+    background-color: #141416;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at top, rgba(20,20,22,0.55) 0%, rgba(20,20,22,0.92) 70%),
+      linear-gradient(to bottom, rgba(20,20,22,0.3), rgba(20,20,22,0.9));
+  }
+
+  .content {
+    position: absolute;
+    inset: var(--pad);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+  }
+
+  .tag {
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 180px;
+    line-height: 0.8;
+    color: var(--accent);
+    opacity: 0.85;
+    margin-bottom: -30px;
+  }
+
+  .quote {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.28;
+    letter-spacing: -0.005em;
+    color: var(--fg);
+  }
+
+  .attribution {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 12px;
+    padding-left: 20px;
+    border-left: 2px solid var(--accent);
+  }
+
+  .author {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .source {
+    font-size: 16px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .context {
+    font-size: 20px;
+    line-height: 1.55;
+    color: var(--muted);
+    font-weight: 400;
+    max-width: 92%;
+  }
+
+  .footer {
+    position: absolute;
+    left: var(--pad);
+    right: var(--pad);
+    bottom: 48px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+
+<body>
+  <div class="frame">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="tag">{tag}</div>
+      <div class="mark">&ldquo;</div>
+
+      <div class="quote">{quote}</div>
+
+      <div class="attribution">
+        <div class="author">{author}</div>
+        <div class="source">{source}</div>
+      </div>
+
+      <div class="context">{context}</div>
+    </div>
+
+    <div class="footer">
+      <span>{footer}</span>
+      <span>{handle}</span>
+    </div>
+  </div>
+</body>
+</html>

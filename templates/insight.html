@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pad: 64px;
+    --text-color: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: {W}px;
+    height: {H}px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-color);
+    overflow: hidden;
+  }
+
+  .frame {
+    position: relative;
+    width: {W}px;
+    height: {H}px;
+    background-image: url("{bg}");
+    background-size: cover;
+    background-position: center;
+    background-color: #0b1220;
+  }
+
+  /* Overlay plus léger que cover (plus lisible pour texte long) */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 14, 30, 0.35) 0%,
+      rgba(10, 14, 30, 0.75) 55%,
+      rgba(10, 14, 30, 0.92) 100%
+    );
+  }
+
+  .content {
+    position: absolute;
+    left: var(--pad);
+    right: var(--pad);
+    bottom: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tag {
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    font-weight: 500;
+  }
+
+  .title {
+    font-weight: 700;
+    font-size: 54px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 90%;
+  }
+
+  .text {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.5;
+    opacity: 0.92;
+    max-width: 85%;
+  }
+
+  .divider {
+    width: 120px;
+    height: 2px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 2px;
+  }
+
+  .footer {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.6;
+    letter-spacing: 0.08em;
+  }
+
+</style>
+</head>
+
+<body>
+  <div class="frame">
+    <div class="overlay"></div>
+
+    <div class="content">
+
+      <!-- Type d'insight (ex: "INSIGHT", "IDEA", "THOUGHT") -->
+      <div class="tag">{tag}</div>
+
+      <!-- Hook principal -->
+      <div class="title">{title}</div>
+
+      <div class="divider"></div>
+
+      <!-- Contenu principal (insight développé court) -->
+      <div class="text">{text}</div>
+
+      <!-- Optionnel : micro signature -->
+      <div class="footer">{footer}</div>
+
+    </div>
+  </div>
+</body>
+</html>

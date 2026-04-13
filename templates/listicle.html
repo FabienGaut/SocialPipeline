@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pad: 64px;
+    --bg: #0b1220;
+    --fg: #ffffff;
+    --muted: rgba(255, 255, 255, 0.72);
+    --accent: #f4b940;
+    --divider: rgba(255, 255, 255, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: {W}px;
+    height: {H}px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--fg);
+    overflow: hidden;
+  }
+
+  .frame {
+    position: relative;
+    width: {W}px;
+    height: {H}px;
+    background-image: url("{bg}");
+    background-size: cover;
+    background-position: center;
+    background-color: var(--bg);
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(11, 18, 32, 0.88) 0%,
+      rgba(11, 18, 32, 0.94) 100%
+    );
+  }
+
+  .content {
+    position: absolute;
+    inset: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .header { display: flex; flex-direction: column; gap: 14px; }
+
+  .tag {
+    font-size: 14px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .title {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+  }
+
+  .intro {
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--muted);
+    max-width: 90%;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 8px;
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 20px;
+    padding: 18px 0;
+    border-top: 1px solid var(--divider);
+    align-items: start;
+  }
+
+  .item:last-child { border-bottom: 1px solid var(--divider); }
+
+  .num {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  .item-body { display: flex; flex-direction: column; gap: 6px; }
+
+  .item-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .item-desc {
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+
+<body>
+  <div class="frame">
+    <div class="overlay"></div>
+
+    <div class="content">
+      <div class="header">
+        <div class="tag">{tag}</div>
+        <div class="title">{title}</div>
+        <div class="intro">{intro}</div>
+      </div>
+
+      <div class="list">
+        <div class="item">
+          <div class="num">01</div>
+          <div class="item-body">
+            <div class="item-title">{item1_title}</div>
+            <div class="item-desc">{item1_desc}</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">02</div>
+          <div class="item-body">
+            <div class="item-title">{item2_title}</div>
+            <div class="item-desc">{item2_desc}</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">03</div>
+          <div class="item-body">
+            <div class="item-title">{item3_title}</div>
+            <div class="item-desc">{item3_desc}</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">04</div>
+          <div class="item-body">
+            <div class="item-title">{item4_title}</div>
+            <div class="item-desc">{item4_desc}</div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="num">05</div>
+          <div class="item-body">
+            <div class="item-title">{item5_title}</div>
+            <div class="item-desc">{item5_desc}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <span>{footer}</span>
+        <span>{cta}</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

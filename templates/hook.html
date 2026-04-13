@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pad: 64px;
+    --text-color: #ffffff;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: {W}px;
+    height: {H}px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-color);
+    overflow: hidden;
+  }
+
+  .frame {
+    position: relative;
+    width: {W}px;
+    height: {H}px;
+    background-image: url("{bg}");
+    background-size: cover;
+    background-position: center;
+    background-color: #0b1220;
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 30% 20%,
+      rgba(0,0,0,0.2) 0%,
+      rgba(10, 14, 30, 0.75) 60%,
+      rgba(10, 14, 30, 0.95) 100%
+    );
+  }
+
+  .content {
+    position: absolute;
+    left: var(--pad);
+    right: var(--pad);
+    bottom: var(--pad);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .tag {
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    font-weight: 500;
+  }
+
+  .hook {
+    font-weight: 800;
+    font-size: 64px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 90%;
+  }
+
+  .subhook {
+    font-weight: 500;
+    font-size: 24px;
+    opacity: 0.9;
+    max-width: 80%;
+  }
+
+  .footer {
+    font-size: 14px;
+    opacity: 0.6;
+    letter-spacing: 0.08em;
+    margin-top: 10px;
+  }
+
+</style>
+</head>
+
+<body>
+  <div class="frame">
+    <div class="overlay"></div>
+
+    <div class="content">
+
+      <div class="tag">{tag}</div>
+
+      <!-- Main hook -->
+      <div class="hook">{hook}</div>
+
+      <!-- Optional explanation / curiosity gap -->
+      <div class="subhook">{subhook}</div>
+
+      <div class="footer">{footer}</div>
+
+    </div>
+  </div>
+</body>
+</html>

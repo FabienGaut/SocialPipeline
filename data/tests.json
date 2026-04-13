@@ -1,0 +1,65 @@
+{
+    "last_post_id": "015",
+    "posts": [
+        {
+            "id": "006",
+            "theme": "discipline",
+            "size": "medium",
+            "text": "La motivation est temporaire. La discipline est durable."
+        },
+        {
+            "id": "007",
+            "theme": "focus",
+            "size": "short",
+            "text": "Le focus est un avantage comp\u00e9titif."
+        },
+        {
+            "id": "008",
+            "theme": "failure",
+            "size": "medium",
+            "text": "\u00c9chouer, c'est apprendre. Ignorer ses \u00e9checs, c'est stagner."
+        },
+        {
+            "id": "009",
+            "theme": "time",
+            "size": "medium",
+            "text": "Ce n'est pas un probl\u00e8me de temps, c'est un probl\u00e8me de priorit\u00e9s."
+        },
+        {
+            "id": "010",
+            "theme": "consistency",
+            "size": "short",
+            "text": "Un peu chaque jour bat beaucoup une fois."
+        },
+        {
+            "id": "011",
+            "theme": "execution",
+            "size": "short",
+            "text": "Une id\u00e9e ne vaut rien sans ex\u00e9cution."
+        },
+        {
+            "id": "012",
+            "theme": "mindset",
+            "size": "long",
+            "text": "Ton mindset d\u00e9termine ton plafond."
+        },
+        {
+            "id": "013",
+            "theme": "risk",
+            "size": "long",
+            "text": "Ne rien risquer est devenu le plus grand risque."
+        },
+        {
+            "id": "014",
+            "theme": "job_market",
+            "size": "long",
+            "text": "Le march\u00e9 de l\u2019emploi ne manque pas d\u2019opportunit\u00e9s. Il manque de profils adaptables. Aujourd\u2019hui, ce ne sont plus les dipl\u00f4mes qui font la diff\u00e9rence, mais la capacit\u00e9 \u00e0 apprendre vite, utiliser l\u2019IA et s\u2019adapter en continu. Ceux qui \u00e9voluent gagnent. Les autres d\u00e9crochent."
+        },
+        {
+            "id": "015",
+            "theme": "action",
+            "size": "medium",
+            "text": "L'action cr\u00e9e la clart\u00e9, pas l'inverse."
+        }
+    ]
+}
