@@ -83,6 +83,15 @@
 
 ---
 
+## 🌐 Social
+
+- [ ] Ajouter les API Instagram, Linkedin, Twitter, Tiktok
+- [ ] Fonctions pour poster à implémenter
+- [ ] Fonctions pour recupérer des statistiques à implémenter
+- [ ] Ajouter prévention mail ou autre pour chaque post posté ou en erreur
+
+---
+
 ## 🚀 Améliorations futures
 
 - [ ] A/B testing automatique des contenus
