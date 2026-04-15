@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pad: 48px;
+    --text: #ffffff;
+    --muted: rgba(255, 255, 255, 0.78);
+    --accent: #d4a24a;
+    --overlay1: rgba(0, 0, 0, 0.25);
+    --overlay2: rgba(0, 0, 0, 0.65);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: {W}px;
+    height: {H}px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    background: black;
+  }
+
+  .story {
+    position: relative;
+    width: {W}px;
+    height: {H}px;
+    background-image: url("{bg}");
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Dégradé pour lisibilité type Instagram Story */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      var(--overlay1) 0%,
+      var(--overlay2) 70%,
+      rgba(0,0,0,0.75) 100%
+    );
+  }
+
+  .content {
+    position: absolute;
+    inset: 0;
+    padding: var(--pad);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .top {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 18px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 800;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  .kicker::before {
+    content: "";
+    width: 44px;
+    height: 3px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 1.05;
+    color: var(--text);
+  }
+
+  .lead {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 500;
+    color: var(--muted);
+    border-left: 3px solid var(--accent);
+    padding-left: 14px;
+    max-width: 90%;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  .body p {
+    text-align: left;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 14px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .author {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* Safe area story (bas écran mobile) */
+  .safe {
+    padding-bottom: 24px;
+  }
+</style>
+</head>
+
+<body>
+  <div class="story">
+    <div class="overlay"></div>
+
+    <div class="content safe">
+
+      <div class="top">
+        <div class="kicker">{kicker}</div>
+
+        <div class="title">{title}</div>
+
+        <div class="lead">{lead}</div>
+      </div>
+
+      <div class="body">
+        <p>{paragraph1}</p>
+        <p>{paragraph2}</p>
+        <p>{paragraph3}</p>
+      </div>
+
+      <div class="bottom">
+        <span class="author">{author}</span>
+        <span>{footer}</span>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

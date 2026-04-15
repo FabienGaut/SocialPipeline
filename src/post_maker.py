@@ -29,7 +29,8 @@ from PIL import Image
 from playwright.sync_api import sync_playwright
 
 
-WIDTH, HEIGHT = 1080, 1350  # format 4:5 (Instagram)
+WIDTH, HEIGHT = 1080, 1350  # format 4:5 (Instagram) — défaut
+STORY_SIZE = (1080, 1920)  # format 9:16 (Instagram/TikTok story)
 
 TEMPLATES_DIR = Path(__file__).resolve().parent.parent / "templates"
 
@@ -109,9 +110,16 @@ def make_post(
     logo: str | Path | None = None,
     output_dir: str | Path = "output",
     filename: str = "post.png",
+    width: int | None = None,
+    height: int | None = None,
     **fields: str,
 ) -> Path:
-    values: dict[str, str] = {"W": str(WIDTH), "H": str(HEIGHT)}
+    # Les templates "story" passent automatiquement en 9:16 sauf override explicite.
+    if width is None and height is None and "story" in template:
+        width, height = STORY_SIZE
+    w = width or WIDTH
+    h = height or HEIGHT
+    values: dict[str, str] = {"W": str(w), "H": str(h)}
 
     if background is not None:
         bg_path = Path(background).resolve()
@@ -137,7 +145,7 @@ def make_post(
     with sync_playwright() as p:
         browser = p.chromium.launch()
         context = browser.new_context(
-            viewport={"width": WIDTH, "height": HEIGHT},
+            viewport={"width": w, "height": h},
             device_scale_factor=1,
         )
         page = context.new_page()
