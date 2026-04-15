@@ -1,9 +1,9 @@
+from src.Airtable.DataRetriver import get_next_unposted, mark_as_posted
 from src.cli import generate_post
 from src.image_getter import download_pexels_image
-from src.text_handler import get_text_from_json, mark_post_as_used, refactor_text
+from src.text_handler import refactor_text
 
 
-POSTS_FILE = "data/tests.json"
 TITLE_PLATFORM = "linkedin"
 
 # Un template par catégorie de longueur (cf. src/template_lengths.py).
@@ -126,10 +126,15 @@ def build_fields(template: str, theme: str, text: str) -> dict[str, str]:
 
 
 def main():
-    result = get_text_from_json(POSTS_FILE)
-    if not result:
+    post = get_next_unposted()
+    if not post:
+        print("Aucun post Airtable non coché trouvé.")
         return
-    theme, seed_text, size, post_id = result
+
+    theme = post["theme"]
+    seed_text = post["text"]
+    size = post["size"]
+    record_id = post["record_id"]
 
     template = template_for_size(size)
 
@@ -150,7 +155,8 @@ def main():
     )
     print(f"Image générée : {out.resolve()} (template={template}, size={size})")
 
-    mark_post_as_used(POSTS_FILE, post_id)
+    mark_as_posted(record_id)
+    print(f"Record Airtable {record_id} coché comme posté.")
 
 
 if __name__ == "__main__":

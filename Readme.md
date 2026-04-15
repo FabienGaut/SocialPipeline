@@ -16,6 +16,23 @@ This project was built with the goal of creating an automated content creation a
 
 ---
 
+## 🎛️ Airtable — cockpit du pipeline
+
+Airtable est le **pilote** de l'application : c'est la seule interface à manipuler au quotidien. Toute la pipeline (sélection du texte, génération de l'image, publication, suivi) démarre à partir d'une ligne Airtable.
+
+**Rôle concret**
+- **Source de vérité des posts** : chaque ligne représente un post à publier (`Thème`, `Texte`, `Taille`, `Type`, `Image`, `Résumé AI`).
+- **File d'attente** : `main.py` lit le premier record dont la case `Posté` n'est pas cochée via `src/Airtable/DataRetriver.py::get_next_unposted()`.
+- **Traçabilité** : dès que la génération aboutit sans erreur, la case `Posté` est cochée automatiquement (`mark_as_posted`) — plus besoin de synchroniser un fichier JSON local.
+- **Contrôle éditorial** : ajouter / réordonner / désactiver un post se fait directement dans la base Airtable, sans toucher au code.
+
+**Configuration requise**
+- Variable d'environnement `AIRTABLE_API_KEY` dans `.env`.
+- Base et table ciblées dans `src/Airtable/DataRetriver.py` (`BASE_ID`, `TABLE`).
+- Champ checkbox `Posté` présent sur la table.
+
+---
+
 ## 🚀 Installation
 
 ```bash
